@@ -11,5 +11,11 @@ module "network" {
   azs             = var.azs
   public_subnets  = var.public_subnets
   private_subnets = var.private_subnets
-#   region             = var.region_main
 }
+
+# module "security-group" {
+#   source        = "../../modules/security-group"
+#   instance_type = "t2.micro"
+
+#   name = "service-security-group"
+# }
