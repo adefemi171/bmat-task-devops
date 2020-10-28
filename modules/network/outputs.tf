@@ -1,3 +1,4 @@
+# VPC ID: vpc-0d437d18fb978fcf6
 output "vpc_id" {
   description = "The ID of the VPC"
   value       = module.vpc.vpc_id
@@ -8,17 +9,28 @@ output "vpc_public_subnets" {
   value       = module.vpc.public_subnets
 }
 
-output "igw_id" {
-  description = "The ID of the Internet Gateway"
-  value       = aws_internet_gateway.igw
+
+output "this_security_group_id" {
+  description = "The ID of the security group"
+  value       = module.service_sg.this_security_group_id
 }
 
-# output "vpc_main_route_table_id" {
-#   description = "The ID of the main route table associated with this VPC"
-#   value       = aws_route_table_association.main_public_1_a.id
-# }
+output "this_security_group_vpc_id" {
+  description = "The VPC ID"
+  value       = module.service_sg.this_security_group_vpc_id
+}
 
-# output "public_route_table_association_ids" {
-#   description = "The list of IDs of the public route table association"
-#   value       = aws_route_table.net_route_public.id
-# }
+output "this_security_group_owner_id" {
+  description = "The owner ID"
+  value       = module.service_sg.this_security_group_owner_id
+}
+
+output "this_security_group_name" {
+  description = "The name of the security group"
+  value       = module.service_sg.this_security_group_name
+}
+
+output "this_security_group_description" {
+  description = "The description of the security group"
+  value       = module.service_sg.this_security_group_description
+}
