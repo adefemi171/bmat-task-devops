@@ -86,7 +86,7 @@ git checkout main
 
 4. Create Auto scaling group
 
-All the above step canbe done using the following command
+All the above step can be done using the following command
 
 To make sure your code is well formatted use
 
