@@ -39,6 +39,23 @@ HCL
             ┣ 📦cache
             ┣ 📦network
             ┣ 📦services
+        📦state_locking
+            ┣ 📦
+            ┣ 📦
+            ┣ 📦
+        📦test
+            ┣ 📦state_locking
+                 ┗ 📜backend.tf
+                 ┗ 📜main.tf
+                 ┗ 📜output.tf
+                 ┗ 📜terraform.tfstate
+                 ┗ 📜variables.tf
+            ┣ 📜backend.tf
+            ┣ 📜init-script.sh
+            ┣ 📜main.tf
+            ┣ 📜output.tf
+            ┣ 📜terraform.tfvars
+            ┣ 📜variables.tf
         ┣ 📜README.md
 
 
