@@ -3,13 +3,13 @@ provider "aws" {
 }
 
 module "network" {
-  source = "../../modules/network"
+  source = "../../modules/services"
 
   name = var.name
 }
 
 module "security-group" {
-  source        = "../../modules/network"
+  source        = "../../modules/services"
 
   name = "service-security-group"
 }
