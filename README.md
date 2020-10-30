@@ -58,7 +58,7 @@ HCL
 
 3. modules: This folder contain two sub folders (services and cache) the service folder contain modules for vpc, autoscaling group, and security group. The cache folder creates a rdis elastic cache.
 
-4 state_locking: This folder was use to create the S3 bucket and DynamoDB for state locking
+4. state_locking: This folder was use to create the S3 bucket and DynamoDB for state locking
 
 5. test: While initializing the configuration, I ran into issues with Elastic IP as i was hitting the limit giving to me by AWS so I created a small test case to solve the task.
 
