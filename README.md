@@ -56,7 +56,7 @@ HCL
 
 2. live: This folder contain three folders (prod, qa, stage) which serve as different environment for the task given.
 
-3. modules: This folder contain two sub folders (services and cache) the service folder contain modules for vpc, autoscaling group, and security group. The cache folder creates a rdis elastic cache.
+3. modules: This folder contain two sub folders (services and cache) the service folder contain modules for vpc, autoscaling group, and security group. The cache folder creates a redis elastic cache.
 
 4. state_locking: This folder was use to create the S3 bucket and DynamoDB for state locking
 
