@@ -13,3 +13,10 @@ module "security-group" {
 
   name = "service-security-group"
 }
+
+module "this" {
+  source = "../../modules/services"
+  
+  name = "Autoscale-with-lc"
+}
+
