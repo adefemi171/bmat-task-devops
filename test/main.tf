@@ -25,7 +25,7 @@ data "template_file" "user_data" {
 
 // VPC for us-east-1
 resource "aws_vpc" "test" {
-  cidr_block           = "${var.cidr}"
+  cidr_block           = var.cidr
   enable_dns_support   = true
   enable_dns_hostnames = true
   tags = {
@@ -141,21 +141,6 @@ resource "aws_route_table_association" "main_public_3_a" {
   route_table_id = aws_route_table.net_route_public.id
 }
 
-# ElastiCache cluster inside of a VPC. 
-# resource "aws_elasticache_subnet_group" "bar" {
-#   name       = "tf-test-cache-subnet"
-#   subnet_ids = [aws_subnet.foo.id]
-# }
-
-resource "aws_elasticache_cluster" "redis_cluster" {
-  cluster_id           = "cluster-example"
-  engine               = "redis"
-  node_type            = "cache.m4.large"
-  num_cache_nodes      = 1
-  parameter_group_name = "default.redis3.2"
-  engine_version       = "3.2.10"
-  port                 = 6379
-}
 
 resource "aws_security_group" "allow-ssh" {
   vpc_id      = aws_vpc.test.id
@@ -202,8 +187,9 @@ resource "aws_autoscaling_group" "main_autoscaling" {
   name                      = "main-autoscaling"
   vpc_zone_identifier       = [aws_subnet.subnet_public_1.id, aws_subnet.subnet_public_2.id]
   launch_configuration      = aws_launch_configuration.main_launchconfig.name
-  min_size                  = 1
-  max_size                  = 5
+  min_size                  = 0
+  max_size                  = 4
+  desired_capacity          = 0
   health_check_grace_period = 300
   health_check_type         = "EC2"
   force_delete              = true
@@ -270,4 +256,22 @@ resource "aws_cloudwatch_metric_alarm" "job_too_low" {
   }
   actions_enabled = true
   alarm_actions   = [aws_autoscaling_policy.cpu_policy_scale_down.arn]
+}
+
+
+resource "aws_elasticache_cluster" "redis_cluster" {
+  cluster_id           = "cluster-example"
+  engine               = "redis"
+  node_type            = "cache.m4.large"
+  num_cache_nodes      = 1
+  parameter_group_name = "default.redis3.2"
+  engine_version       = "3.2.10"
+  port                 = 6379
+  subnet_group_name    = aws_elasticache_subnet_group.subnet.name
+}
+
+# ElastiCache cluster inside of a VPC. 
+resource "aws_elasticache_subnet_group" "subnet" {
+  name       = "tf-test-cache-subnet"
+  subnet_ids = [aws_subnet.subnet_public_1.id, aws_subnet.subnet_public_2.id]
 }
