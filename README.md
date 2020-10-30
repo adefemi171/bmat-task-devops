@@ -1,24 +1,9 @@
 # BMAT Music Innovators
 
 
+## App Details
 
-# App Details
-.......
-................................................
-................................
-
-The app consist of:
-
-    └──
-
-    └──
-
-    └──
-
-    └──
-
-    └──
-
+...
 
 # Proposed Stack
 
@@ -65,6 +50,18 @@ HCL
 ![](docs/Back_office_architecture.png?raw=true)
 
 
+## Folder structure
+
+1. Docs: This folder contain documents like the task given and the architecture diagram
+
+2. live: This folder contain three folders (prod, qa, stage) which serve as different environment for the task given.
+
+3. modules: This folder contain two sub folders (services and cache) the service folder contain modules for vpc, autoscaling group, and security group. The cache folder creates a rdis elastic cache.
+
+4 state_locking: This folder was use to create the S3 bucket and DynamoDB for state locking
+
+5. test: While initializing the configuration, I ran into issues with Elastic IP as i was hitting the limit giving to me by AWS so I created a small test case to solve the task.
+
 ## Assumptions
 I assumed that the metric I will be using to scale up the number of workers is the CPUUtilization and also I assumed the threshold as the number of job in queues.
 
@@ -75,9 +72,8 @@ I assumed that the metric I will be using to scale up the number of workers is t
 3. For security, I am using state locking and also each environment is been isolated from the other.
 
 ## Things to still work on
-1. Creating cloud watch metric and autoscaling policy
-2. Hosting modules on a different repository and reaading fro there rather than reading locally
-3. Set up Github Action for auto deployment
+1. Hosting modules on a different repository and reaading fro there rather than reading locally
+2. Set up Github Action for auto deployment
 
 # How to setup project
 
