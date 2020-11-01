@@ -1,10 +1,3 @@
-# Weblink
-# https://docs.celeryproject.org/en/stable/getting-started/first-steps-with-celery.html#redis
-# https://docs.celeryproject.org/en/stable/getting-started/brokers/redis.html#broker-redis
-# https://www.bogotobogo.com/DevOps/DevOps-Terraform.php
-# https://dzone.com/articles/awsterraform-workshop-2-ec2-networking-autoscaling
-# https://testable.io/create-an-aws-auto-scaling-group-with-terraform/
-# https://geekdudes.wordpress.com/2018/01/10/amazon-autosclaing-using-terraform/
 #!/bin/bash
 sudo apt-get update && sudo apt-get upgrade -y
 
